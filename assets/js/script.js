@@ -1,5 +1,6 @@
 $("#currentDay").text(moment().format("LLLL"));
-$(document)
+
+var task={}
 
 var time = [
   "0900",
@@ -29,6 +30,15 @@ function loadTask() {
 }
 
 function createTask() {
+
+    // if(!task){
+    //     task = {
+    //         text: "",
+    //         time: ""
+    //     }
+    // }
+
+
   loadTask();
 
   var currentTime = moment().format("HH" + "00");
@@ -57,11 +67,11 @@ function createTask() {
 
 $(".container").on("click", "button", function(){
 
-    console.log("save btn clicked" + event.target);
+    console.log("save btn clicked");
 
     var text = $(this).siblings('.description').val();
 
-    var time = $(this).find('.hour').text().trim();
+    var time = $(this).attr('id');
     
 
     console.log("saved text " +text);
